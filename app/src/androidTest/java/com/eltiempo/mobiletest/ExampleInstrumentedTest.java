@@ -1,4 +1,4 @@
-package com.eltiempo.myapplication;
+package com.eltiempo.mobiletest;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.eltiempo.myapplication", appContext.getPackageName());
+        assertEquals("com.eltiempo.mobiletest", appContext.getPackageName());
     }
 }

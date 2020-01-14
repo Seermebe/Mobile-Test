@@ -1,4 +1,4 @@
-package com.eltiempo.myapplication;
+package com.eltiempo.mobiletest;
 
 import org.junit.Test;
 
