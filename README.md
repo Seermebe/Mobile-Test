@@ -11,10 +11,10 @@ Para el desarrollo de este proyecto se trataron los siguientes temas:
 
 # Despliegue de la app.
 
-a. Clonar el proyecto.
-b. Abrirlo con Android Studio.
-c. Conectar al computador un dispositivo movil Android o lanzar un emulador.
-d. Ejecutar el código.
+1. Clonar el proyecto.
+2. Abrirlo con Android Studio.
+3. Conectar al computador un dispositivo movil Android o lanzar un emulador.
+4. Ejecutar el código.
 
 # Modo de uso.
 
