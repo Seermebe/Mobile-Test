@@ -93,7 +93,7 @@ public class AllFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Search item", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Desarrollo pendiente", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
 
