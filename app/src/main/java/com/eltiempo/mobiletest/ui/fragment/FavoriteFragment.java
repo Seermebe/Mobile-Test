@@ -77,7 +77,8 @@ public class FavoriteFragment extends Fragment {
         String apollo11Str = Vars.getSharedPreferences(getActivity(), "apollo11");
         Gson gson = new Gson();
         apollo11 = gson.fromJson(apollo11Str, Apollo11.class);
-        populateListView(apollo11);
+        if (apollo11 != null)
+            populateListView(apollo11);
 
         return root;
     }
@@ -89,7 +90,8 @@ public class FavoriteFragment extends Fragment {
         String apollo11Str = Vars.getSharedPreferences(getActivity(), "apollo11");
         Gson gson = new Gson();
         apollo11 = gson.fromJson(apollo11Str, Apollo11.class);
-        populateListView(apollo11);
+        if (apollo11 != null)
+            populateListView(apollo11);
 
     }
 }
