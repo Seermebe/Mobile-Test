@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.VisorActivity">
 
         <ImageView
@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/nameTextView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:padding="8dp"
@@ -32,27 +32,7 @@
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"
-            card_view:layout_constraintEnd_toStartOf="@id/favoriteOffImageView"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/favoriteOffImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="8dp"
-            android:src="@android:drawable/btn_star_big_off"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/favoriteOnImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="8dp"
-            android:src="@android:drawable/btn_star_big_on"
-            android:visibility="invisible"
-            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
@@ -64,98 +44,116 @@
             card_view:layout_constraintTop_toBottomOf="@id/spacecraftImageView">
 
             <TextView
-                android:id="@+id/locationTitleTextView"
+                android:id="@+id/durationTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Location"
+                android:text="Duration"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/locationTextView"
+                android:id="@+id/durationTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Location"
+                android:text="Duration"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/keywordsTitleTextView"
+                android:id="@+id/listenersTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Keywords"
+                android:text="Listeners"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/keywordsTextView"
+                android:id="@+id/listenersTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Keywords"
+                android:text="Listeners"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/photographerTitleTextView"
+                android:id="@+id/urlSongTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Photographer"
+                android:text="Website Song (Touch to go to the link)"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/photographerTextView"
+                android:id="@+id/urlSongTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Photographer"
+                android:text="URL Song"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/dateCreatedTitleTextView"
+                android:id="@+id/artistTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Date created"
+                android:text="Artist"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/dateCreatedTextView"
+                android:id="@+id/artistTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="Date created"
+                android:text="Artist"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/descriptionTitleTextView"
+                android:id="@+id/urlArtistTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="Description"
+                android:text="Website Artist (Touch to go to the link)"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/descriptionTextView"
+                android:id="@+id/urlArtistTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:paddingBottom="16dp"
-                android:text="Spacecraft Name\nSpacecraft Name\nSpacecraft Name\nSpacecraft Name\nSpacecraft Name\nSpacecraft Name\nSpacecraft Name\nSpacecraft Name\nSpacecraft Name\n"
+                android:text="URL Artist"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/rankTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Rank"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rankTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Rank"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
         </LinearLayout>

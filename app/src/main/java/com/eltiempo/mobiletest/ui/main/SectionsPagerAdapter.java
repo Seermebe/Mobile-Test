@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.eltiempo.mobiletest.R;
-import com.eltiempo.mobiletest.ui.fragment.AllFragment;
-import com.eltiempo.mobiletest.ui.fragment.FavoriteFragment;
+import com.eltiempo.mobiletest.ui.fragment.ArtistsFragment;
+import com.eltiempo.mobiletest.ui.fragment.TracksFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -36,10 +36,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                fragment = AllFragment.newInstance(1);
+                fragment = ArtistsFragment.newInstance(1);
                 break;
             case 1:
-                fragment = FavoriteFragment.newInstance(2);
+                fragment = TracksFragment.newInstance(2);
                 break;
         }
 

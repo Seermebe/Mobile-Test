@@ -15,12 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.eltiempo.mobiletest.R;
 import com.eltiempo.mobiletest.RecyclerViewAdapter;
-import com.eltiempo.mobiletest.model.Apollo11;
-import com.eltiempo.mobiletest.model.Item;
-import com.eltiempo.mobiletest.util.Apollo11Client;
+import com.eltiempo.mobiletest.model.Artist;
+import com.eltiempo.mobiletest.model.TopArtists;
+import com.eltiempo.mobiletest.util.TopArtistsClient;
 import com.eltiempo.mobiletest.util.Vars;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -32,36 +30,36 @@ import retrofit2.Response;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class AllFragment extends Fragment {
+public class ArtistsFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private RecyclerView.Adapter adapter;
     private RecyclerView mListView;
     private RecyclerView.LayoutManager layoutManager;
     private ProgressBar myProgressBar;
-    private FloatingActionButton fab;
+//    private FloatingActionButton fab;
     private Button deleteAllButton;
     private Button refreshButton;
 
-    public static AllFragment newInstance(int index) {
-        AllFragment fragment = new AllFragment();
+    public static ArtistsFragment newInstance(int index) {
+        ArtistsFragment fragment = new ArtistsFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    private void populateListView(Apollo11 apollo11) {
+    private void populateListView(TopArtists topArtist) {
 
         mListView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getActivity());
         mListView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerViewAdapter(getActivity(), apollo11);
+        adapter = new RecyclerViewAdapter(getActivity(), topArtist);
         mListView.setAdapter(adapter);
 
-        Vars.setSharedPreferences(getActivity(), "apollo11", new Gson().toJson(apollo11));
+        Vars.setSharedPreferences(getActivity(), "TopArtists", new Gson().toJson(topArtist));
     }
 
     @Override
@@ -75,36 +73,36 @@ public class AllFragment extends Fragment {
 
         myProgressBar = root.findViewById(R.id.myProgressBar);
         mListView = root.findViewById(R.id.mListView);
-        fab = root.findViewById(R.id.fab);
+//        fab = root.findViewById(R.id.fab);
         deleteAllButton = root.findViewById(R.id.deleteAllButton);
         refreshButton = root.findViewById(R.id.refreshButton);
 
         myProgressBar.setIndeterminate(true);
         myProgressBar.setVisibility(View.VISIBLE);
 
-        String apollo11Str = Vars.getSharedPreferences(getActivity(), "apollo11");
+        String topArtistStr = Vars.getSharedPreferences(getActivity(), "TopArtists");
 
-        if (apollo11Str.equals("")) {
+        if (topArtistStr.equals("")) {
             service();
         } else {
             myProgressBar.setVisibility(View.GONE);
         }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Desarrollo pendiente", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Desarrollo pendiente", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//            }
+//        });
 
         deleteAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String apollo11Str = Vars.getSharedPreferences(getActivity(), "apollo11");
+                String topArtistStr = Vars.getSharedPreferences(getActivity(), "TopArtists");
                 Gson gson = new Gson();
-                Apollo11 apollo11 = gson.fromJson(apollo11Str, Apollo11.class);
-                apollo11.getCollection().setItems(new ArrayList<Item>());
-                populateListView(apollo11);
+                TopArtists topArtist = gson.fromJson(topArtistStr, TopArtists.class);
+                topArtist.getTopartists().setArtist(new ArrayList<Artist>());
+                populateListView(topArtist);
             }
         });
 
@@ -122,28 +120,29 @@ public class AllFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        String apollo11Str = Vars.getSharedPreferences(getActivity(), "apollo11");
-        if (!apollo11Str.equals("")) {
+        String topArtistStr = Vars.getSharedPreferences(getActivity(), "TopArtists");
+
+        if (!topArtistStr.equals("")) {
             Gson gson = new Gson();
-            Apollo11 apollo11 = gson.fromJson(apollo11Str, Apollo11.class);
-            populateListView(apollo11);
+            TopArtists topArtist = gson.fromJson(topArtistStr, TopArtists.class);
+            populateListView(topArtist);
         }
     }
 
     private void service() {
         /*Create handle for the RetrofitInstance interface*/
-        Apollo11Client apollo11Client = Vars.getRetrofitInstance.create(Apollo11Client.class);
+        TopArtistsClient topArtistClient = Vars.getRetrofitInstance.create(TopArtistsClient.class);
 
-        Call<Apollo11> callApollo = apollo11Client.getApollo11("apollo 11");
-        callApollo.enqueue(new Callback<Apollo11>() {
+        Call<TopArtists> callApollo = topArtistClient.getTopArtist("geo.gettopartists", "colombia", "829751643419a7128b7ada50de590067", "json", "1");
+        callApollo.enqueue(new Callback<TopArtists>() {
             @Override
-            public void onResponse(Call<Apollo11> call, Response<Apollo11> response) {
+            public void onResponse(Call<TopArtists> call, Response<TopArtists> response) {
                 myProgressBar.setVisibility(View.GONE);
                 populateListView(response.body());
             }
 
             @Override
-            public void onFailure(Call<Apollo11> call, Throwable t) {
+            public void onFailure(Call<TopArtists> call, Throwable t) {
                 myProgressBar.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
             }

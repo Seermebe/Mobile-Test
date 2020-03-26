@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Vars {
 
-    private static final String BASE_URL = "https://images-api.nasa.gov/";
+    private static final String BASE_URL = "http://ws.audioscrobbler.com";
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).build();
     public final static Retrofit getRetrofitInstance = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build();
 

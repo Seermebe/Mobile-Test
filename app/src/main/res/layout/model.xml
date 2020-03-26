@@ -25,34 +25,14 @@
 
         <TextView
             android:id="@+id/nameTextView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Spacecraft Name"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"
-            card_view:layout_constraintEnd_toStartOf="@id/favoriteOffImageView"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/favoriteOffImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="8dp"
-            android:src="@android:drawable/btn_star_big_off"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/favoriteOnImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="8dp"
-            android:src="@android:drawable/btn_star_big_on"
-            android:visibility="invisible"
-            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
